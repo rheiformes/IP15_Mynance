@@ -11,6 +11,21 @@ class HomeViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet var balanceLbl: UILabel!
     
+    @IBAction func unwindToHomeWithData(unwindSegue: UIStoryboardSegue) {
+//        
+        print("got here")
+        //if let sourceViewController = sender
+        transactionTable.reloadData()
+        print(thisAccount.transactions)
+        
+        
+        balanceLbl.text = "$" +  String(format: "%.2f", abs(thisAccount.getBalance()))
+        if(thisAccount.getBalance() < 0) {
+            balanceLbl.text = "- " + balanceLbl.text!
+        }
+    }
+    
+    
     //let transactionOne = Transaction(type: .income, value: 5000, description: "paycheck")
     var thisAccount = Account(transactions: [Transaction(type: .income, value: 5000, description: "paycheck")])
     
@@ -19,8 +34,9 @@ class HomeViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         transactionTable.dataSource = self
-        balanceLbl.text = "$" +  String(format: "%.2f", thisAccount.getBalance())
+        balanceLbl.text = String(format: "$%.02f", thisAccount.getBalance())
     }
+
     
     
     
@@ -39,7 +55,12 @@ class HomeViewController: UIViewController, UITableViewDataSource {
         
         
         var content = cell.defaultContentConfiguration()
-        content.text = "$" + String(format: "%.2f", thisTransaction.value)
+        
+        content.text = "$" +  String(format: "%.2f", abs(thisTransaction.value))
+        if(thisTransaction.value < 0) {
+            content.text  = "- " + content.text!
+        }
+        
         content.secondaryText = thisTransaction.description
         //cart.fill", "dollarsign.circle.fill", and "bolt.fill".
         switch thisTransaction.type {

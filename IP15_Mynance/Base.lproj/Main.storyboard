@@ -36,7 +36,9 @@
                                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <segue destination="MXf-eA-8K5" kind="show" id="BOM-ee-d5k"/>
+                                                    <segue destination="MXf-eA-8K5" kind="popoverPresentation" popoverAnchorView="1JI-dP-EnQ" id="15C-hg-ARS">
+                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                    </segue>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -47,15 +49,15 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qVQ-rs-pyu">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qVQ-rs-pyu">
                                         <rect key="frame" x="0.0" y="87" width="331" height="648"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TransactionCell" textLabel="0gE-6V-taC" detailTextLabel="bG8-WV-1lL" style="IBUITableViewCellStyleSubtitle" id="YPs-yT-bj6">
-                                                <rect key="frame" x="0.0" y="49.5" width="331" height="43.5"/>
+                                                <rect key="frame" x="0.0" y="49.5" width="331" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YPs-yT-bj6" id="PJi-zU-ESE">
-                                                    <rect key="frame" x="0.0" y="0.0" width="331" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="331" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0gE-6V-taC">
@@ -74,6 +76,7 @@
                                                         </label>
                                                     </subviews>
                                                 </tableViewCellContentView>
+                                                <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.69999999999999996"/>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -104,11 +107,11 @@
             <objects>
                 <viewController id="MXf-eA-8K5" customClass="AddTransactionViewController" customModule="IP15_Mynance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tqt-XR-CEY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="1P6-qk-Zzy">
-                                <rect key="frame" x="41.5" y="253.5" width="331" height="389"/>
+                                <rect key="frame" x="41.5" y="226.5" width="331" height="389"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="d1l-z4-pfK">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="34"/>
@@ -137,8 +140,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5K9-Qo-pab">
                                         <rect key="frame" x="0.0" y="329" width="331" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="600" id="5RJ-8j-f3N"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="331" id="Jb5-Mg-GZ7"/>
                                             <constraint firstAttribute="height" constant="60" id="wsG-Pi-Xim"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
@@ -146,7 +147,7 @@
                                             <imageReference key="image" image="checkmark.circle" catalog="system" symbolScale="large"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="userSave:" destination="MXf-eA-8K5" eventType="touchUpInside" id="fth-Mo-lT3"/>
+                                            <segue destination="qil-6H-WN5" kind="unwind" unwindAction="unwindToHomeWithDataWithUnwindSegue:" id="kig-pi-eE5"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -170,6 +171,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zd9-Us-EPC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="qil-6H-WN5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1714" y="-1115"/>
         </scene>

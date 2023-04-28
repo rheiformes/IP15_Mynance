@@ -63,7 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				2246BF8429FADDB300ECE984 /* Models */,
-				2246BF8629FADDD500ECE984 /* Controllers */,
 				2246BF8529FADDCF00ECE984 /* Views */,
 				2246BF7029FADAF600ECE984 /* SceneDelegate.swift */,
 				2246BF6E29FADAF600ECE984 /* AppDelegate.swift */,
@@ -91,13 +90,6 @@
 				2281BB8229FC2D31001361B2 /* AddTransactionViewController.swift */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		2246BF8629FADDD500ECE984 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
