@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		222CD1442A016CB800F2E216 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222CD1432A016CB800F2E216 /* TransactionTableViewCell.swift */; };
 		2246BF6F29FADAF600ECE984 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246BF6E29FADAF600ECE984 /* AppDelegate.swift */; };
 		2246BF7129FADAF600ECE984 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246BF7029FADAF600ECE984 /* SceneDelegate.swift */; };
 		2246BF7629FADAF700ECE984 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2246BF7429FADAF700ECE984 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		222CD1432A016CB800F2E216 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		2246BF6B29FADAF600ECE984 /* IP15_Mynance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IP15_Mynance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2246BF6E29FADAF600ECE984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2246BF7029FADAF600ECE984 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		222CD1422A01683D00F2E216 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2246BF8929FAE2D400ECE984 /* HomeViewController.swift */,
+				2281BB8229FC2D31001361B2 /* AddTransactionViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		2246BF6229FADAF600ECE984 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +73,7 @@
 		2246BF6D29FADAF600ECE984 /* IP15_Mynance */ = {
 			isa = PBXGroup;
 			children = (
+				222CD1422A01683D00F2E216 /* Controllers */,
 				2246BF8429FADDB300ECE984 /* Models */,
 				2246BF8529FADDCF00ECE984 /* Views */,
 				2246BF7029FADAF600ECE984 /* SceneDelegate.swift */,
@@ -86,8 +98,7 @@
 		2246BF8529FADDCF00ECE984 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2246BF8929FAE2D400ECE984 /* HomeViewController.swift */,
-				2281BB8229FC2D31001361B2 /* AddTransactionViewController.swift */,
+				222CD1432A016CB800F2E216 /* TransactionTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -164,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2246BF8A29FAE2D400ECE984 /* HomeViewController.swift in Sources */,
+				222CD1442A016CB800F2E216 /* TransactionTableViewCell.swift in Sources */,
 				2246BF8329FADBFB00ECE984 /* Transaction.swift in Sources */,
 				2246BF8829FADDF100ECE984 /* Account.swift in Sources */,
 				2281BB8329FC2D31001361B2 /* AddTransactionViewController.swift in Sources */,

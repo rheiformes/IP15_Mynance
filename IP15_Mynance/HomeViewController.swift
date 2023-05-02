@@ -11,8 +11,18 @@ class HomeViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet var balanceLbl: UILabel!
     
+    let defaults = UserDefaults.standard
+    var thisAccount = Account(transactions: [Transaction(type: .income, value: 5000, description: "paycheck")])
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        transactionTable.dataSource = self
+        balanceLbl.text = String(format: "$%.02f", thisAccount.getBalance())
+        
+    }
+    
     @IBAction func unwindToHomeWithData(unwindSegue: UIStoryboardSegue) {
-//        
         print("got here")
         //if let sourceViewController = sender
         transactionTable.reloadData()
@@ -24,18 +34,11 @@ class HomeViewController: UIViewController, UITableViewDataSource {
             balanceLbl.text = "- " + balanceLbl.text!
         }
     }
-    
-    
-    //let transactionOne = Transaction(type: .income, value: 5000, description: "paycheck")
-    var thisAccount = Account(transactions: [Transaction(type: .income, value: 5000, description: "paycheck")])
+
     
     @IBOutlet var transactionTable: UITableView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        transactionTable.dataSource = self
-        balanceLbl.text = String(format: "$%.02f", thisAccount.getBalance())
-    }
+    
 
     
     
@@ -48,34 +51,38 @@ class HomeViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as! TransactionTableViewCell
+        
 
         // Configure the cell...
+        
         let thisTransaction = thisAccount.transactions[indexPath.section]
-        
-        
-        var content = cell.defaultContentConfiguration()
-        
-        content.text = "$" +  String(format: "%.2f", abs(thisTransaction.value))
-        if(thisTransaction.value < 0) {
-            content.text  = "- " + content.text!
-        }
-        
-        content.secondaryText = thisTransaction.description
-        //cart.fill", "dollarsign.circle.fill", and "bolt.fill".
-        switch thisTransaction.type {
-        case .income:
-            content.image = UIImage(systemName: "dollarsign.circle.fill")
-        case .grocery:
-            content.image = UIImage(systemName: "cart.fill")
-        case .utility:
-            content.image = UIImage(systemName: "bolt.fill")
-        }
-        
-        
-        cell.contentConfiguration = content
-        print("done")
+        cell.update(with: thisTransaction)
+        cell.showsReorderControl = true
         return cell
+//
+//        var content = cell.defaultContentConfiguration()
+//
+//        content.text = "$" +  String(format: "%.2f", abs(thisTransaction.value))
+//        if(thisTransaction.value < 0) {
+//            content.text  = "- " + content.text!
+//        }
+//
+//        content.secondaryText = thisTransaction.description
+//        //cart.fill", "dollarsign.circle.fill", and "bolt.fill".
+//        switch thisTransaction.type {
+//        case .income:
+//            content.image = UIImage(systemName: "dollarsign.circle.fill")
+//        case .grocery:
+//            content.image = UIImage(systemName: "cart.fill")
+//        case .utility:
+//            content.image = UIImage(systemName: "bolt.fill")
+//        }
+//
+//
+//        cell.contentConfiguration = content
+//        print("done")
+//        return cell
     }
     
     

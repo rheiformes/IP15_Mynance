@@ -25,7 +25,7 @@ enum TransactionTypes: CaseIterable {
         }
 }
 
-class Transaction {
+class Transaction /*: Codable*/ {
     
     var type: TransactionTypes
     var value: Double
